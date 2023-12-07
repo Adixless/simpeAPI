@@ -21,4 +21,4 @@ app.use(router);
 app.use(cookieParser());
 app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
 
-app.listen(9000, ()=> console.log('Server running at port 9000'));
+app.listen(9000, ()=> console.log('Server berjalan at port 9000'));
