@@ -91,6 +91,33 @@ const logout = async(req, res) => {
     return res.sendStatus(200);
 }
 
+//fungsi profile
+const getProfile = async(req, res) => {
+    try {
+      const profile = profiles[req.params.id];
+      if (profile) {
+        res.send(profile);
+      } else {
+        res.status(404).send({ message: "Profile not found" });
+      }
+    } catch (error) {
+      res.status(500).send({ message: "Internal Server Error", error: error.message });
+    }
+  };
+
+/fungsi edit profile
+const editProfile = async(req, res) => {
+    try {
+        const updatedProfile = await Profile.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!updatedProfile) {
+          return res.status(404).json({ error: 'Profile not found' });
+        }
+        res.json(updatedProfile);
+      } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+};
+
 module.exports = {
     getUsers,
     register,
