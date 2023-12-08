@@ -105,7 +105,7 @@ const getProfile = async(req, res) => {
     }
   };
 
-/fungsi edit profile
+//fungsi edit profile
 const editProfile = async(req, res) => {
     try {
         const updatedProfile = await Profile.findByIdAndUpdate(req.params.id, req.body, { new: true });
