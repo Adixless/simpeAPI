@@ -122,5 +122,7 @@ module.exports = {
     getUsers,
     register,
     login,
-    logout
+    logout,
+    getProfile,
+    editProfile
 };
