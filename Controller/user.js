@@ -94,9 +94,14 @@ const logout = async(req, res) => {
 //fungsi profile
 const getProfile = async(req, res) => {
     try {
-      const profile = profiles[req.params.id];
+        // const {
+        //     id
+        // } = req.params; // Ref dari Journey
+
+      const profile = Users[req.params.id];
       if (profile) {
         res.send(profile);
+        res.json({msg: 'Profile sukses!'});
       } else {
         res.status(404).send({ message: "Profile not found" });
       }
