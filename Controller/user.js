@@ -118,11 +118,57 @@ const editProfile = async(req, res) => {
       }
 };
 
+//fungsi upload
+const cvUpload = (upload.single('pdfFile'), (req, res) => {
+    if (!req.file) {
+      return res.status(400).send('No file uploaded.');
+    }
+  
+    res.send('File uploaded successfully!');
+  });
+
+//REFERENSI CHATGPT
+// const express = require('express');
+// const multer = require('multer');
+// const path = require('path');
+
+// const app = express();
+// const port = 3000;
+
+// // Set up storage using Multer
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'uploads/'); // Destination folder for storing PDF files
+//   },
+//   filename: (req, file, cb) => {
+//     const fileName = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
+//     cb(null, fileName);
+//   },
+// });
+
+// // Initialize Multer with the storage configuration
+// const upload = multer({ storage: storage });
+
+// // Set up a route to handle file uploads
+// app.post('/upload', upload.single('pdfFile'), (req, res) => {
+//   if (!req.file) {
+//     return res.status(400).send('No file uploaded.');
+//   }
+
+//   res.send('File uploaded successfully!');
+// });
+
+// // Start the server
+// app.listen(port, () => {
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
+
 module.exports = {
     getUsers,
     register,
     login,
     logout,
     getProfile,
-    editProfile
+    editProfile,
+    cvUpload
 };
