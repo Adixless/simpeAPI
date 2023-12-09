@@ -5,7 +5,8 @@ const {
     login,
     logout,
     getProfile,
-    editProfile
+    editProfile,
+    cvUpload
 } = require("../Controller/user.js");
 const verifyToken = require ("../middleware/verifyToken.js")
 const refreshToken = require ("../Controller/RefreshToken.js")
@@ -19,5 +20,6 @@ router.get('/token', refreshToken);
 router.delete('/logout', logout);
 router.get('/profile', getProfile);
 router.put('/editProfile', editProfile);
+router.post('/upload', cvUpload);
 
 module.exports = router;
