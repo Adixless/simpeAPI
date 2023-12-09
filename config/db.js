@@ -8,8 +8,8 @@ const db = mysql.createConnection({
     password: 'password_sql_Anda'
 })
 
-db.connect((err) => {
-    if (err) throw err;
+db.connect((error) => {
+    if (error) throw error;
     console.log('Connected to the database');
 });
 
