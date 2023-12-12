@@ -1,4 +1,4 @@
-const Users = require ("../models");
+const { Users } = require ('../models');
 const jwt = require ('jsonwebtoken')
 
 const refreshToken = async(req, res) => {
@@ -7,7 +7,7 @@ const refreshToken = async(req, res) => {
         if(!refreshToken) return res.sendStatus(401);
         const user = await Users.findAll({
             where:{
-                refreshToken: refreshToken
+                refresh_token: refreshToken
             }
         })
         if(!user[0]) return res.sendStatus(403);
