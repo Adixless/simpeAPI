@@ -18,8 +18,8 @@ router.post('/register', register);
 router.post('/login', login);
 router.get('/token', refreshToken);
 router.delete('/logout', logout);
-router.get('/profile', getProfile);
-router.put('/editProfile', editProfile);
+router.get('/profile/:id', getProfile);
+router.put('/editProfile/:id', editProfile);
 router.post('/upload', cvUpload);
 
 

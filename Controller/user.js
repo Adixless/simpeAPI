@@ -96,9 +96,9 @@ const getProfile = async(req, res) => {
     try {
         const {
             id
-        } = req.params; // Ref dari Journey
+        } = req.params;
 
-      const profile = Users[id];
+      const profile = Users.findByPk(id);
       if (profile) {
         res.send(profile);
         res.json({msg: 'Profile sukses!'});
@@ -132,7 +132,7 @@ const cvUpload = (upload.single('pdfFile'), (req, res) => {
     res.send('File uploaded successfully!');
   });
 
-//REFERENSI CHATGPT
+//REFERENSI 
 // const express = require('express');
 // const multer = require('multer');
 // const path = require('path');
