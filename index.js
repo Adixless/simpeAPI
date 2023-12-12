@@ -1,5 +1,5 @@
 var express = require('express');
-var db = require("./config/db.js");
+var db = require("./config");
 const dotenv = require('dotenv');
 var app = express();
 const cookieParser = require ("cookie-parser");
