@@ -6,7 +6,7 @@ const {
     logout,
     getProfile,
     editProfile,
-    cvUpload
+    // cvUpload
 } = require("../Controller/user.js");
 const verifyToken = require ("../middleware/verifyToken.js")
 const refreshToken = require ("../Controller/RefreshToken.js")
@@ -20,7 +20,7 @@ router.get('/token', refreshToken);
 router.delete('/logout', logout);
 router.get('/profile/:id', getProfile);
 router.put('/editProfile/:id', editProfile);
-router.post('/upload', cvUpload);
+// router.post('/upload', cvUpload);
 
 
 module.exports = router;

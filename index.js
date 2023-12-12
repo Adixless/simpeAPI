@@ -1,5 +1,5 @@
 var express = require('express');
-var db = require("./config");
+// var db = require("./config");
 const dotenv = require('dotenv');
 var app = express();
 const cookieParser = require ("cookie-parser");
@@ -7,15 +7,15 @@ var router = require("./routes/route.js");
 const cors = require("cors")
 dotenv.config();
 
-async function test() {try {
-    await db.authenticate();
-    console.log('Database connected');
+// async function test() {try {
+//     await db.authenticate();
+//     console.log('Database connected');
     
-    } catch (error) {
-    console.error(error);
-}}
+//     } catch (error) {
+//     console.error(error);
+// }}
 
-test()
+// test()
 app.use(express.json());
 app.use(router);
 app.use(cookieParser());

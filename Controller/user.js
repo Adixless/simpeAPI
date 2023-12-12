@@ -1,4 +1,4 @@
-const Users = require("../models")
+const { Users } = require('../models')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -123,14 +123,14 @@ const editProfile = async(req, res) => {
       }
 };
 
-//fungsi upload
-const cvUpload = (upload.single('pdfFile'), (req, res) => {
-    if (!req.file) {
-      return res.status(400).send('No file uploaded.');
-    }
+//fungsi upload error pas di run jadi di comment
+// const cvUpload = (upload.single('pdfFile'), (req, res) => {
+//     if (!req.file) {
+//       return res.status(400).send('No file uploaded.');
+//     }
   
-    res.send('File uploaded successfully!');
-  });
+//     res.send('File uploaded successfully!');
+//   });
 
 //REFERENSI 
 // const express = require('express');
@@ -175,5 +175,5 @@ module.exports = {
     logout,
     getProfile,
     editProfile,
-    cvUpload
+    // cvUpload
 };
