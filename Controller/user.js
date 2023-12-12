@@ -94,11 +94,11 @@ const logout = async(req, res) => {
 //fungsi profile
 const getProfile = async(req, res) => {
     try {
-        // const {
-        //     id
-        // } = req.params; // Ref dari Journey
+        const {
+            id
+        } = req.params; // Ref dari Journey
 
-      const profile = Users[req.params.id];
+      const profile = Users[id];
       if (profile) {
         res.send(profile);
         res.json({msg: 'Profile sukses!'});
