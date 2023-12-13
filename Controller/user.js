@@ -17,7 +17,7 @@ const getUsers = async(req,res) => {
 
 //function register
 const register = async(req, res) => {
-    const { name, email, password, confPassword } = req.body;
+    const { name, email, alamat, tanggalLahir, gender, telepon, password, confPassword } = req.body;
     if (password !== confPassword) return res.status(400).json({msg:'Password yang anda masukkan tidak cocok'});
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
@@ -25,6 +25,10 @@ const register = async(req, res) => {
         await Users.create({
             name: name,
             email: email,
+            alamat: alamat,
+            tanggalLahir:tanggalLahir,
+            gender: gender,
+            telepon: telepon,
             password: hashPassword
         });
         res.json({msg: 'Register Sukses!'});

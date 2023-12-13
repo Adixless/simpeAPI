@@ -21,6 +21,18 @@ module.exports = {
       refresh_token: {
         type: Sequelize.TEXT
       },
+      tanggalLahir: {
+        Type: Sequelize.DATE
+      },
+      alamat: {
+        Type: Sequelize.STRING
+      },
+      gender: {
+        Type: Sequelize.STRING
+      },
+      telepon: {
+        Type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
