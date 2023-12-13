@@ -15,23 +15,20 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      password: {
+      alamat: {
         type: Sequelize.STRING
       },
-      refresh_token: {
-        type: Sequelize.TEXT
-      },
       tanggalLahir: {
-        Type: Sequelize.DATE
-      },
-      alamat: {
-        Type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       gender: {
-        Type: Sequelize.STRING
+        type: Sequelize.STRING
       },
       telepon: {
-        Type: Sequelize.INTEGER
+        type: Sequelize.INTEGER
+      },
+      password: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
