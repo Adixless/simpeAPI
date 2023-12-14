@@ -172,6 +172,29 @@ const editProfile = async(req, res) => {
 //   console.log(`Server is running on http://localhost:${port}`);
 // });
 
+//fungsi melihat list pekerjaan
+const getAllJob = (req, res) => {
+    res.json(jobs);
+  };
+
+//fungsi melihat detail suatu pekerjaan
+const getDetailedJob = (req, res) => {
+    const jobId = parseInt(req.params.jobId);
+    const job = jobs.find(job => job.id === jobId);
+  
+    if (job) {
+      res.json(job);
+    } else {
+      res.status(404).json({ error: 'Job not found' });
+    }
+  };
+
+//fungsi mendaftar pekerjaan
+const jobApply = (req, res) => {
+    const jobId = parseInt(req.params.jobId);
+    res.json({ message: `Applied for job ${jobId}` });
+};
+
 module.exports = {
     getUsers,
     register,
@@ -179,5 +202,8 @@ module.exports = {
     logout,
     getProfile,
     editProfile,
-    // cvUpload
+    // cvUpload,
+    getAllJob,
+    getDetailedJob,
+    jobApply
 };
