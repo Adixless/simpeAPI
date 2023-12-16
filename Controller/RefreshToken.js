@@ -1,9 +1,9 @@
 const { Users } = require ('../models');
-const jwt = require ('jsonwebtoken')
+const jwt = require ('jsonwebtoken');
 
 const refreshToken = async(req, res) => {
     try {
-        const refreshToken = req.cookies.refreshToken;
+        const refreshToken = req.cookies && req.cookies.refreshToken;
         if(!refreshToken) return res.sendStatus(401);
         const user = await Users.findAll({
             where:{
@@ -16,7 +16,7 @@ const refreshToken = async(req, res) => {
             const userId = user[0].id;
             const name = user[0].name;
             const email = user[0].email;
-            const accessToken = jwt.sign({userId, name, email}, process.env.ACCESS_TOKEN_SECRET) ({
+            const accessToken = jwt.sign({userId, name, email}, process.env.ACCESS_TOKEN_SECRET,{
                 expiresIn: '15s'
             });
             res.json({ accessToken })

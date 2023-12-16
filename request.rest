@@ -1,0 +1,14 @@
+
+
+
+
+GET http://localhost:9000/token
+
+###
+POST http://localhost:9000/login
+Content-Type: application/json
+
+{
+    "email": "halo@mail.co",
+    "password":"halo123"
+}

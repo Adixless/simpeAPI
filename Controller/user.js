@@ -77,11 +77,11 @@ const login = async(req, res) => {
 
 //fungsi logout
 const logout = async(req, res) => {
-    const refreshToken = req.cookies.refreshToken;
+    const refreshToken = req.cookies.refresh_token;
     if(!refreshToken) return res.sendStatus(204);
     const user = await Users.findAll({
         where:{
-            refreshToken: refreshToken
+            refresh_token: refreshToken
         }
     })
     if(!user[0]) return res.sendStatus(204);

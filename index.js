@@ -7,10 +7,9 @@ var router = require("./routes/route.js");
 const cors = require("cors")
 dotenv.config();
 
-
+app.use(cookieParser());
 app.use(express.json());
 app.use(router);
-app.use(cookieParser());
 app.use(cors({ credentials:true, origin:'http://localhost:3000' }));
 
 app.get("/", (req, res, next) => {
